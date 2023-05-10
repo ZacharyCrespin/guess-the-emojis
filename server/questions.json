@@ -1,0 +1,36 @@
+[
+  {
+    "emojis": {
+      "string": "🔴🐂"
+    },
+    "answer": ["red bull", "redbull"],
+    "category": "brands"
+  },
+  {
+    "emojis": {
+      "string": "⭐💵"
+    },
+    "answer": ["starbucks", "star bucks"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "💧📦" },
+    "answer": ["dropbox", "drop box"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🔥🦊" },
+    "answer": ["firefox", "fire fox"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🍔👑" },
+    "answer": ["burger king", "burgerking"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "☀🚫" },
+    "answer": ["ray-ban", "rayban", "ray ban"],
+    "category": "brands"
+  }
+]
