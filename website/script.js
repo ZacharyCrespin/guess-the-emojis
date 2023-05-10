@@ -1,4 +1,4 @@
-const serverURL = 'http://localhost:3000'
+const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
 
 let score = 0
 let a
