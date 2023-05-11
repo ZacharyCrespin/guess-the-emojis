@@ -45,7 +45,7 @@ function skip() {
 window.onload = function () {
   fetch(serverURL)
   .then((res) => {
-    if (res = 'setup') {
+    if (res.serverStatus = 'setup') {
       newQ()
     } else {
       alert('Server Error')

@@ -1,15 +1,16 @@
 [
   {
-    "emojis": {
-      "string": "🔴🐂"
-    },
+    "emojis": { "string": "🔴🐂" },
     "answer": ["red bull", "redbull"],
     "category": "brands"
   },
   {
-    "emojis": {
-      "string": "⭐💵"
-    },
+    "emojis": { "string": "⭐💵" },
+    "answer": ["starbucks", "star bucks"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "⭐🦌🦌" },
     "answer": ["starbucks", "star bucks"],
     "category": "brands"
   },
@@ -29,7 +30,7 @@
     "category": "brands"
   },
   {
-    "emojis": { "string": "☀🚫" },
+    "emojis": { "string": "🔆🚫" },
     "answer": ["ray-ban", "rayban", "ray ban"],
     "category": "brands"
   }
