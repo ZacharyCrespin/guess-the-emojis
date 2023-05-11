@@ -6,17 +6,9 @@ const port = 3000
 const allowOrigin = "*"
 
 let serverStatus = 'runing'
-let categorys
 let allQs = []
 
 async function setup() {
-  fs.readFile('categorys.json', (err, res) => {  
-    if (err) {
-      console.log(err);
-    } else {
-      categorys = JSON.parse(res);
-    }
-  })
   fs.readFile('questions.json', (err, res) => {  
     if (err) {
       console.log(err);
@@ -34,11 +26,6 @@ setup()
 app.get('/', (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", allowOrigin)
   res.send(serverStatus)
-})
-
-app.get('/categorys', (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
-  res.send(categorys)
 })
 
 app.get('/randomQuestion', (req, res) => {

@@ -2,7 +2,19 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  font-weight: 400;
   text-align: center;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .score {
@@ -25,17 +37,20 @@ body {
   width: max-content;
   overflow: hidden;
   margin: 1rem auto;
+  background-color: #9708F4;
   border: 4px solid #9708F4;
   border-radius: 100vmax;
 }
 .guess input {
   margin-right: 0;
   padding: 0.5rem 1rem;
+  font-family: inherit;
   border: none;
 }
 .guess button {
   margin-left: 0;
   padding: 0.5rem 1rem;
+  font-family: inherit;
   color: white;
   background: linear-gradient(#5E14E4, #873ED7);
   border: none;
