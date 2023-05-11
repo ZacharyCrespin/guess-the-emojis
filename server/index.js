@@ -3,6 +3,7 @@ const { getEmojiImages } = require('./emoji')
 const fs = require('fs')
 const app = express()
 const port = 3000
+const allowOrigin = "*"
 
 let serverStatus = 'runing'
 let categorys
@@ -31,15 +32,17 @@ async function setup() {
 setup()
 
 app.get('/', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
   res.send(serverStatus)
 })
 
 app.get('/categorys', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
   res.send(categorys)
 })
 
 app.get('/randomQuestion', (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*")
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
   let random = Math.floor(Math.random() * (allQs.length - 1));
   let question = allQs[random];
   getEmojiImages(question.emojis.string).then((imgs) => {
