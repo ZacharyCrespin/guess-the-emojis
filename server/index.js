@@ -7,19 +7,31 @@ const allowOrigin = "*"
 
 let serverStatus = 'runing'
 let allQs = []
+let categorys = {}
 
 async function setup() {
   fs.readFile('questions.json', (err, res) => {  
     if (err) {
       console.log(err);
     } else {
-      questions = JSON.parse(res);
+      const questions = JSON.parse(res);
+      const tempCategorys = [];
+
+      questions.forEach((element, i) => {
+        element.id = i;
+        allQs.push(element);
+
+        const category = element.category;
+        tempCategorys.push(category);
+        if (categorys.hasOwnProperty(category)) {
+          categorys[category]++;
+        } else {
+          categorys[category] = 1;
+        }
+      });
     }
-    questions.forEach(element => {
-      allQs.push(element)
-    });
-  })
-  serverStatus = 'setup'
+  });
+  serverStatus = 'setup';
 }
 setup()
 
@@ -27,7 +39,8 @@ app.get('/', (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", allowOrigin)
   res.send({
     serverStatus,
-    numberOfQuestions: allQs.length
+    totalQuestions: allQs.length,
+    categorys
   })
 })
 
