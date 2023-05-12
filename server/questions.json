@@ -33,5 +33,35 @@
     "emojis": { "string": "🔆🚫" },
     "answer": ["ray-ban", "rayban", "ray ban"],
     "category": "brands"
+  },
+  {
+    "emojis": { "string": "🔝🔫" },
+    "answer": ["top-gun", "topgun", "top gun"],
+    "category": "movies"
+  },
+  {
+    "emojis": { "string": "🏰🌃" },
+    "answer": ["fort-nite", "fortnite", "fort nite"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🔵🦷" },
+    "answer": ["blue-tooth", "bluetooth", "blue tooth"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🐦🔵" },
+    "answer": ["twitter"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🌍🔍" },
+    "answer": ["google"],
+    "category": "brands"
+  },
+  {
+    "emojis": { "string": "🍔🍟" },
+    "answer": ["mcdonalds", "mcdonald's", "mc donalds"],
+    "category": "brands"
   }
 ]
