@@ -70,7 +70,7 @@ async function getEmojiImages(emojiString) {
   const emojiMetadataList = await getEmojiMetadata(emojiString);
   let imgList = [];
   emojiMetadataList.forEach(element => {
-    imgList.push(`${element.folderName}/${element.cldr.replace(' ', '_')}.png`);
+    imgList.push(`${element.folderName}/${element.cldr.toLowerCase().replaceAll(' ', '_')}.png`);
   });
   return imgList;
 }
