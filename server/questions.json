@@ -63,5 +63,10 @@
     "emojis": { "string": "🍔🍟" },
     "answer": ["mcdonalds", "mcdonald's", "mc donalds", "mc donald's"],
     "category": "brands"
+  },
+  {
+    "emojis": { "string": "🎯" },
+    "answer": ["target"],
+    "category": "brands"
   }
 ]

@@ -7,7 +7,8 @@ const allowOrigin = "*"
 
 let serverStatus = 'runing'
 let allQs = []
-let categorys = {}
+let categorys = []
+let categoryData = {}
 
 async function setup() {
   fs.readFile('questions.json', (err, res) => {  
@@ -23,10 +24,11 @@ async function setup() {
 
         const category = element.category;
         tempCategorys.push(category);
-        if (categorys.hasOwnProperty(category)) {
-          categorys[category]++;
+        if (categoryData.hasOwnProperty(category)) {
+          categoryData[category]++;
         } else {
-          categorys[category] = 1;
+          categoryData[category] = 1;
+          categorys.push(category)
         }
       });
     }
