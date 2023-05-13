@@ -2,22 +2,18 @@
 title: Guess the Emojis
 layout: "base.webc"
 ---
-<header>
-  <p class="score">Score: <span id="score">0</span></p>
-  <h1>Guess the Emojis</h1>
-</header>
+<p class="score tab">Score: <span id="score">0</span></p>
 <main>
-  <div id="emojis" class="emojis"></div>
-  <div class="guess">
-    <input type="text" name="guess" id="guess">
-    <button id="guessBtn" onclick="guess()">Guess</button>
+  <div id="emojis" class="emojis">
+    <loader webc:import="_components/loader.webc"></loader>
+  </div>
+  <div class="tab duo">
+    <input type="text" id="guess">
+    <button style="background-color: var(--purple);" onclick="guess()">Guess</button>
     <!-- <button id="skipBtn" onclick="skip()">Skip</button> -->
   </div>
 </main>
-
 <script>
-  const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
-
   let score = 0
   let a
 
@@ -27,9 +23,10 @@ layout: "base.webc"
     .then((question) => {
       const emojiDiv = document.getElementById('emojis')
       // Remove all child elements from the div
-      while (emojiDiv.firstChild) {
-        emojiDiv.removeChild(emojiDiv.firstChild);
-      }
+      emojiDiv.innerHTML = ''
+      // Empty the guess input
+      document.getElementById('guess').value = ''
+      // Display the emoji images
       for (var i = 0; i < question.emojis.imgs.length; i++) {
         // Create a new img element
         var img = document.createElement('img');
@@ -75,40 +72,10 @@ layout: "base.webc"
     position: fixed;
     top: 1rem;
     left: 1rem;
-    padding: 0.5rem 1rem;
-    color: white;
-    background-color: var(--purple);
-    border: 4px solid var(--pink);
-    border-radius: 100vmax;
   }
 
   .emojis img {
     max-width: calc(100vw/5);
     filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.25));
-  }
-  .guess {
-    width: max-content;
-    overflow: hidden;
-    margin: 1rem auto;
-    background-color: var(--pink);
-    border: 4px solid var(--pink);
-    border-radius: 100vmax;
-  }
-  .guess input {
-    margin-right: 0;
-    padding: 0.5rem 1rem;
-    font-family: inherit;
-    border: none;
-  }
-  .guess input:focus-visible {
-    outline: none;
-  }
-  .guess button {
-    margin-left: 0;
-    padding: 0.5rem 1rem;
-    font-family: inherit;
-    color: white;
-    background-color: var(--purple);
-    border: none;
   }
 </style>

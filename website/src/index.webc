@@ -2,9 +2,45 @@
 title: Guess the Emojis
 layout: "base.webc"
 ---
-<header>
-  <h1>Guess the Emojis</h1>
-</header>
 <main>
-  <a href="/play" class="btn">Play</a>
+  <div class="tab duo">
+    <label for="category">Category</label>
+    <select name="category" id="category">
+      <option value="all">All</option>
+    </select>
+  </div>
+  <div class="tab duo">
+    <label for="numberOfQs">Number of Questions</label>
+    <select name="numberOfQs" id="numberOfQs">
+      <option value="5">5</option>
+      <option value="10" selected>10</option>
+      <!-- <option value="inf">∞</option> -->
+    </select>
+  </div>
+  <button class="btn" onclick="play()">Play</button>
 </main>
+<script>
+  fetch(serverURL)
+  .then(res => res.json())
+  .then(res => {
+    res.categorys.forEach(category => {
+      let element = document.createElement("option");
+      element.value = category;
+      element.innerText = toTitleCase(category);
+      document.getElementById("category").append(element);
+    });
+  })
+
+  function play() {
+    let category = document.getElementById("category");
+    category = category.options[category.selectedIndex].value;
+    let numberOfQs = document.getElementById("numberOfQs");
+    numberOfQs = numberOfQs.options[numberOfQs.selectedIndex].value;
+    window.location.href = `/play/?category=${category}&numberOfQs=${numberOfQs}`;
+  };
+</script>
+<style>
+  select:focus-visible {
+    outline: none;
+  }
+</style>

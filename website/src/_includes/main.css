@@ -9,8 +9,6 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   text-align: center;
-  height: 100vh;
-  height: 100dvh;
 }
 
 h1	{
@@ -41,10 +39,40 @@ h6	{
   background-color: var(--purple);
   border: 4px solid var(--pink);
   border-radius: 100vmax;
-  transition: all ease 400ms;
+  transition: all ease 300ms;
   transform: none;
 }
 .btn:hover {
+  cursor: pointer;
   transform: translateY(-4px) translateX(-2px);
   box-shadow: 2px 4px 0 0 var(--purple);
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: var(--purple);
+  border: 4px solid var(--pink);
+  border-radius: 100vmax;
+}
+
+.tab.duo {
+  width: max-content;
+  overflow: hidden;
+  margin: 1rem auto;
+  padding: 0;
+  color: white;
+}
+.tab.duo * {
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+}
+.tab.duo *:first-child {
+  padding-right: 0.5rem;
+}
+.tab.duo *:last-child {
+  padding-left: 0.5rem;
+  color: white;
+  background-color: var(--pink);
 }
