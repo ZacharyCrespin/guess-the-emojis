@@ -1,0 +1,19 @@
+{
+  "name": "guess-the-emoji",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "start": "eleventy --serve --quiet",
+    "build": "eleventy"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-webc": "^0.11.1"
+  }
+}

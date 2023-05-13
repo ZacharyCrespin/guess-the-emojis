@@ -1,0 +1,10 @@
+---
+title: Guess the Emojis
+layout: "base.webc"
+---
+<header>
+  <h1>Guess the Emojis</h1>
+</header>
+<main>
+  <a href="/play" class="btn">Play</a>
+</main>

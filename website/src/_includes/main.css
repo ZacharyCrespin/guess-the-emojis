@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+:root {
+  --purple: #5E14E4;
+  --pink: #9708F4;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  height: 100vh;
+  height: 100dvh;
+}
+
+h1	{
+  font-size: 3.999rem;
+}	
+h2	{
+  font-size: 2.999rem;
+}	
+h3	{
+  font-size: 2.333rem;
+}	
+h4	{
+  font-size: 2.000rem;
+}	
+h5	{
+  font-size: 1.666rem;
+}	
+h6	{
+  font-size: 1.166rem;
+}	
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  text-decoration: none;
+  color: white;
+  background-color: var(--purple);
+  border: 4px solid var(--pink);
+  border-radius: 100vmax;
+  transition: all ease 400ms;
+  transform: none;
+}
+.btn:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 4px 0 0 var(--purple);
+}
