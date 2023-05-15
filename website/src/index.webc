@@ -5,21 +5,26 @@ layout: "base.webc"
 <main>
   <div class="tab duo">
     <label for="category">Category</label>
-    <select name="category" id="category">
+    <select name="category" id="category" disabled>
       <option value="all">All</option>
     </select>
   </div>
   <div class="tab duo">
     <label for="numberOfQs">Number of Questions</label>
-    <select name="numberOfQs" id="numberOfQs">
+    <select name="numberOfQs" id="numberOfQs" disabled>
       <option value="5">5</option>
       <option value="10" selected>10</option>
       <!-- <option value="inf">∞</option> -->
     </select>
   </div>
-  <button class="btn" onclick="play()">Play</button>
+  <button class="btn" id="play" onclick="play()">Play</button>
 </main>
 <script>
+  const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
+
+  let category = document.getElementById("category");
+  let numberOfQs = document.getElementById("numberOfQs");
+
   fetch(serverURL)
   .then(res => res.json())
   .then(res => {
@@ -32,9 +37,7 @@ layout: "base.webc"
   })
 
   function play() {
-    let category = document.getElementById("category");
     category = category.options[category.selectedIndex].value;
-    let numberOfQs = document.getElementById("numberOfQs");
     numberOfQs = numberOfQs.options[numberOfQs.selectedIndex].value;
     window.location.href = `/play/?category=${category}&numberOfQs=${numberOfQs}`;
   };

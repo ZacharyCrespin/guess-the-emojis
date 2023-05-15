@@ -1,5 +1,3 @@
-const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
-
 function toTitleCase(value) {
   return value.replace(
     /\w\S*/g,

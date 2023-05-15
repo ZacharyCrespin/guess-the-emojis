@@ -42,7 +42,7 @@ h6	{
   transition: all ease 300ms;
   transform: none;
 }
-.btn:hover {
+.btn:not(:disabled):hover {
   cursor: pointer;
   transform: translateY(-4px) translateX(-2px);
   box-shadow: 2px 4px 0 0 var(--purple);
