@@ -75,6 +75,31 @@ app.get('/category/:category', (req, res) => {
   });
 })
 
+app.get('/play', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
+
+  function getRandomQs(x) {
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    const indexes = Array.from({ length: allQs.length }, (_, i) => i); // Create an array with indexes [0, 1, 2, ..., allQs.length - 1]
+    const shuffledIndexes = shuffle(indexes); // Shuffle the array
+    return shuffledIndexes.slice(0, x); // Select the first x indexes
+  }
+
+  let category = req.query.category
+  let numberOfQs = req.query.numberOfQs
+  res.send({
+    category,
+    numberOfQs,
+    questions: getRandomQs(numberOfQs)
+  });
+})
+
 app.use('/emojis', express.static('emojis'))
 
 app.listen(port, () => {

@@ -9,34 +9,60 @@ layout: "base.webc"
   </div>
   <div class="tab duo">
     <input type="text" id="guess">
-    <button style="background-color: var(--purple);" onclick="guess()">Guess</button>
+    <button style="background-color: var(--purple);" onclick="guess()" id="guessBtn">Guess</button>
     <!-- <button id="skipBtn" onclick="skip()">Skip</button> -->
   </div>
 </main>
 <script webc:bucket="defer">
   let score = 0
+  let game = {}
+  let q = 0
   let a
 
-  function newQ() {
-    fetch(`${serverURL}/randomQuestion`)
-    .then((response) => response.json())
-    .then((question) => {
-      const emojiDiv = document.getElementById('emojis')
-      // Remove all child elements from the div
-      emojiDiv.innerHTML = ''
-      // Empty the guess input
-      document.getElementById('guess').value = ''
-      // Display the emoji images
-      for (var i = 0; i < question.emojis.imgs.length; i++) {
-        // Create a new img element
-        var img = document.createElement('img');
-        // Set the src attribute of the img element to the URL of the image
-        img.src = `${serverURL}/emojis/${question.emojis.imgs[i]}`;
-        // Append the img element to the div element
-        emojiDiv.appendChild(img);
-      }
-      a = question.answer
+  function startGame() {
+    const gameData = new URLSearchParams(window.location.search)
+    const category = gameData.get("category")
+    const numberOfQs = gameData.get("numberOfQs")
+
+    fetch(`${serverURL}/play?category=${category}&numberOfQs=${numberOfQs}`)
+    .then((res) => res.json())
+    .then((res) => {
+      game = res
+      nextQ()
     })
+  }
+
+  function endGame() {
+    alert("Game Over Score: " + score)
+    document.getElementById("guessBtn").disabled = true
+  }
+
+  function nextQ() {
+    if (q < game.numberOfQs) {
+      fetch(`${serverURL}/question/${game.questions[q]}`)
+      .then((res) => res.json())
+      .then((res) => {
+        question = res
+        const emojiDiv = document.getElementById('emojis')
+        // Remove all child elements from the div
+        emojiDiv.innerHTML = ''
+        // Empty the guess input
+        document.getElementById('guess').value = ''
+        // Display the emoji images
+        for (var i = 0; i < question.emojis.imgs.length; i++) {
+          // Create a new img element
+          var img = document.createElement('img');
+          // Set the src attribute of the img element to the URL of the image
+          img.src = `${serverURL}/emojis/${question.emojis.imgs[i]}`;
+          // Append the img element to the div element
+          emojiDiv.appendChild(img);
+        }
+        a = question.answer
+        q++
+      })
+    } else {
+      endGame()
+    }
   }
 
   function guess() {
@@ -45,7 +71,7 @@ layout: "base.webc"
       if (guess.toLowerCase() == element) {
         score = score + 1
         document.getElementById('score').innerText = score
-        newQ()
+        nextQ()
       } else {
         document.getElementById('guess').value = ''
       }
@@ -53,14 +79,14 @@ layout: "base.webc"
   }
 
   function skip() {
-    newQ()
+    nextQ()
   }
 
   window.onload = function () {
     fetch(serverURL)
     .then((res) => {
       if (res.serverStatus = 'setup') {
-        newQ()
+        startGame()
       } else {
         alert('Server Error')
       }

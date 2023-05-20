@@ -3,6 +3,7 @@ title: Guess the Emojis
 layout: "base.webc"
 ---
 <main>
+  <p>Some options are not yet available.</p>
   <div class="tab duo">
     <label for="category">Category</label>
     <select name="category" id="category" disabled>
@@ -11,10 +12,10 @@ layout: "base.webc"
   </div>
   <div class="tab duo">
     <label for="numberOfQs">Number of Questions</label>
-    <select name="numberOfQs" id="numberOfQs" disabled>
+    <select name="numberOfQs" id="numberOfQs">
       <option value="5">5</option>
       <option value="10" selected>10</option>
-      <option value="inf">∞</option>
+      <!-- <option value="inf">∞</option> -->
     </select>
   </div>
   <button class="btn" id="play" onclick="play()">Play</button>
