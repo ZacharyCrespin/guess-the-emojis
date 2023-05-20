@@ -66,6 +66,15 @@ app.get('/question/:index', (req, res) => {
   })
 })
 
+app.get('/category/:category', (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin)
+  let category = req.params.category
+  res.send({
+    category,
+    numberOfQs: categoryData[category]
+  });
+})
+
 app.use('/emojis', express.static('emojis'))
 
 app.listen(port, () => {

@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title @text="title"></title>
   <link rel="stylesheet" href="main.css">
+  <script src="main.js"></script>
   <style @raw="getBundle('css')" webc:keep></style>
+  <script @raw="getBundle('js')" webc:keep></script>
 </head>
 <body>
   <header>
     <h1 @text="title"></h1>
   </header>
   <template @raw="content" webc:nokeep></template>
-  <script src="main.js"></script>
-  <script @raw="getBundle('js')" webc:keep></script>
+  <style @raw="getBundle('css', 'defer')" webc:keep></style>
+  <script @raw="getBundle('js', 'defer')" webc:keep></script>
   <script webc:keep async src="https://analytics.zacharyc.site/tracker.js" data-ackee-server="https://analytics.zacharyc.site" data-ackee-domain-id="010f26e9-05e1-41f5-86df-c0f7d3cc752e"></script>
 </body>
 </html>

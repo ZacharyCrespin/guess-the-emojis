@@ -1,3 +1,5 @@
+const serverURL = 'https://guess-the-emojis-server-ta5ihvbchq-uw.a.run.app'
+
 function toTitleCase(value) {
   return value.replace(
     /\w\S*/g,

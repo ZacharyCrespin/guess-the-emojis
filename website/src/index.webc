@@ -14,14 +14,12 @@ layout: "base.webc"
     <select name="numberOfQs" id="numberOfQs" disabled>
       <option value="5">5</option>
       <option value="10" selected>10</option>
-      <!-- <option value="inf">∞</option> -->
+      <option value="inf">∞</option>
     </select>
   </div>
   <button class="btn" id="play" onclick="play()">Play</button>
 </main>
-<script>
-  const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
-
+<script webc:bucket="defer">
   let category = document.getElementById("category");
   let numberOfQs = document.getElementById("numberOfQs");
 
@@ -34,6 +32,7 @@ layout: "base.webc"
       element.innerText = toTitleCase(category);
       document.getElementById("category").append(element);
     });
+    category.disabled = false;
   })
 
   function play() {

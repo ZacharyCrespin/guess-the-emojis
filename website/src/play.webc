@@ -13,9 +13,7 @@ layout: "base.webc"
     <!-- <button id="skipBtn" onclick="skip()">Skip</button> -->
   </div>
 </main>
-<script>
-  const serverURL = 'https://server.guess-the-emojis.zacharyc.site'
-
+<script webc:bucket="defer">
   let score = 0
   let a
 
