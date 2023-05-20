@@ -93,6 +93,7 @@ app.get('/play', (req, res) => {
 
   let category = req.query.category
   let numberOfQs = req.query.numberOfQs
+  if (numberOfQs == "inf") {numberOfQs = allQs.length}
   res.send({
     category,
     numberOfQs,
