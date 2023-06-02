@@ -71,7 +71,7 @@ app.get('/category/:category', (req, res) => {
   let category = req.params.category
   res.send({
     category,
-    numberOfQs: categoryData[category]
+    numberOfQs: categoryData[category] ? categoryData[category] : 0
   });
 })
 
